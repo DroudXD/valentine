@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const introMessages = [
         "Hello Sham",
-        "I wanted to ask you something super important cutie",
+        "I want to ask you something super important cutie",
         "Will you be my Valentine?"
     ];
 
@@ -126,12 +126,12 @@ function animateDots(baseText, done) {
             cycles++;
         }
 
-        if (cycles === 4) {   // how long it loops
+        if (cycles === 3) {   // how long it loops
             clearInterval(interval);
-            setTimeout(done, 500);
+            setTimeout(done, 450);
         }
 
-    }, 450); // slower = more iMessage feel
+    }, 400); // slower = more iMessage feel
 }
 
 
