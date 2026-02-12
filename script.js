@@ -111,22 +111,29 @@ document.addEventListener("DOMContentLoaded", () => {
         typing();
     }
 
-    function animateDots(baseText, done) {
-        let dots = 0;
-        let cycles = 0;
+function animateDots(baseText, done) {
+    let dots = 0;
+    let cycles = 0;
 
-        const interval = setInterval(() => {
-            dots = (dots % 3) + 1;
-            introText.textContent = baseText + ".".repeat(dots);
+    const interval = setInterval(() => {
 
-            if (dots === 3) cycles++;
+        introText.textContent = baseText + (dots === 0 ? "" : ".".repeat(dots));
 
-            if (cycles === 3) {
-                clearInterval(interval);
-                setTimeout(done, 400);
-            }
-        }, 350);
-    }
+        dots++;
+
+        if (dots > 3) {
+            dots = 0;
+            cycles++;
+        }
+
+        if (cycles === 4) {   // how long it loops
+            clearInterval(interval);
+            setTimeout(done, 500);
+        }
+
+    }, 450); // slower = more iMessage feel
+}
+
 
     function nextMessage() {
         if (currentMessage >= introMessages.length) {
