@@ -55,14 +55,14 @@
 */
 const messages = [
     "Sham wth?",
-    "Nah you gotta be joking",
+    "Nah you gotta be joking hbb",
     "You're breaking my heart :(",
     "habibti please...",
     "SHAM!!",
     "If you say no again, I will be really sad...",
     "Very sad.",
     "Sham I said I'll be very very very sad.",
-    "Ok fine, I will stop asking and just be sad..."
+    "No. I will never stop asking..."
 ];
 
 let messageIndex = 0;
