@@ -6,6 +6,29 @@
     <title>Knew you would say yes!</title>
     <link rel="stylesheet" href="./yes_style.css">
 </head>
+
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+
+    const size = Math.random() * 20 + 10;
+    heart.style.width = size + "px";
+    heart.style.height = size + "px";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 200);
+</script>
+    
 <body>
     <div class="container">
         <h1 class="header_text">I knew you were gonna say yes.</h1>
