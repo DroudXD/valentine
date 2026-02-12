@@ -6,36 +6,59 @@
     <title>Knew you would say yes!</title>
     <link rel="stylesheet" href="./yes_style.css">
 </head>
-
-<script>
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-
-    const size = Math.random() * 20 + 10;
-    heart.style.width = size + "px";
-    heart.style.height = size + "px";
-
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}
-
-setInterval(createHeart, 200);
-</script>
-    
 <body>
     <div class="container">
         <h1 class="header_text">I knew you were gonna say yes.</h1>
         <div class="gif_container">
-                <img src="mochi-cat-chibi-cat.gif" alt="Cute GIF" class="valentine-gif">
+            <img src="mochi-cat-chibi-cat.gif" alt="Cute GIF" class="valentine-gif">
         </div>
         <h1 class="header_text">Now you're my valentine hehe</h1>
     </div>
+
+    <script>
+      (function () {
+        const HEART_SRC = "heart.png";
+        const intervalMs = 180;
+        const minSize = 16;
+        const maxSize = 42;
+        const minDuration = 3.5;
+        const maxDuration = 7;
+
+        function spawnHeart() {
+          const img = document.createElement("img");
+          img.src = HEART_SRC;
+          img.alt = "";
+          img.className = "floating-heart";
+
+          const size = Math.random() * (maxSize - minSize) + minSize;
+          img.style.width = size + "px";
+          img.style.height = size + "px";
+
+          img.style.left = Math.random() * 100 + "vw";
+
+          const drift = (Math.random() * 140 - 70).toFixed(0) + "px";
+          img.style.setProperty("--drift", drift);
+
+          const spin = (Math.random() * 240 - 120).toFixed(0) + "deg";
+          img.style.setProperty("--spin", spin);
+
+          const scale = (Math.random() * 0.6 + 0.8).toFixed(2);
+          img.style.setProperty("--scale", scale);
+
+          const duration = Math.random() * (maxDuration - minDuration) + minDuration;
+          img.style.animationDuration = duration + "s";
+
+          document.body.appendChild(img);
+
+          img.addEventListener("load", () => {
+            // ok
+          });
+
+          setTimeout(() => img.remove(), (duration + 0.2) * 1000);
+        }
+
+        setInterval(spawnHeart, intervalMs);
+      })();
+    </script>
 </body>
 </html>
